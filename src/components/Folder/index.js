@@ -3,7 +3,7 @@ import {TouchableWithoutFeedback} from 'react-native';
 import SvgUri from 'react-native-svg-uri';
 const folder = require('../../assets/folder.svg');
 const openFolder = require('../../assets/folder-open.svg');
-import {StyledFolder, FolderLabel, FolderText, Collapsible} from './style';
+import {StyledFolder, FolderLabel, FolderText} from './style';
 import {FileTree} from '../FileTree';
 import {getSymlinkTarget} from '../utils';
 
@@ -18,13 +18,13 @@ export const Folder = ({data, name}) => {
     setIsOpen(!isOpen);
   };
 
-  const children = isOpen
-    ? type === 'symlink'
+  const getChildren = () => {
+    return type === 'symlink'
       ? getSymlinkTarget({
           symlinkTarget: data[name]['symlink.target'],
         })
-      : data[name].children
-    : null;
+      : data[name].children;
+  };
 
   return (
     <StyledFolder>
@@ -34,9 +34,7 @@ export const Folder = ({data, name}) => {
           <FolderText>{name}</FolderText>
         </FolderLabel>
       </TouchableWithoutFeedback>
-      <Collapsible isOpen={isOpen}>
-        {isOpen && <FileTree data={children} />}
-      </Collapsible>
+      {isOpen && <FileTree data={getChildren()} />}
     </StyledFolder>
   );
 };

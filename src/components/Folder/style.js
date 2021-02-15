@@ -12,8 +12,3 @@ export const FolderLabel = styled.View`
 export const FolderText = styled.Text`
   margin-left: 5px;
 `;
-
-export const Collapsible = styled.View`
-  height: ${(p) => (p.isOpen ? 'auto' : '0')};
-  overflow: hidden;
-`;
