@@ -6,7 +6,6 @@ import {
   View,
   StatusBar,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {FileTree} from './src/components/FileTree';
 import {data} from './src/components/data';
 
@@ -17,7 +16,8 @@ const App: () => React$Node = () => {
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+          style={styles.scrollView}
+          horizontal>
           <View style={styles.container}>
             <FileTree data={data} />
           </View>
@@ -28,13 +28,9 @@ const App: () => React$Node = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
     padding: 8,
   },
 });

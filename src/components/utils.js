@@ -1,3 +1,5 @@
+import {data as treeData} from './data';
+
 export const searchTree = ({data, matchingElement}) => {
   let resElement = null;
 
@@ -27,4 +29,19 @@ export const searchTree = ({data, matchingElement}) => {
   searchElement({searchElementData: data, element: matchingElement});
 
   return resElement;
+};
+
+export const getSymlinkTarget = ({symlinkTarget}) => {
+  const matchingElementArray = symlinkTarget.split('\\');
+
+  let element = null;
+
+  matchingElementArray.forEach((matchingElement) => {
+    element = searchTree({
+      data: treeData,
+      matchingElement,
+    });
+  });
+
+  return element.children;
 };
