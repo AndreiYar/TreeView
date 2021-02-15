@@ -6,7 +6,7 @@ import {StyledFile, FileText} from './style';
 export const File = ({name}) => {
   return (
     <StyledFile>
-      <SvgUri width={16} height={16} source={file} />
+      <SvgUri width={16} height={16} fill="#000" source={file} />
       <FileText>{name}</FileText>
     </StyledFile>
   );

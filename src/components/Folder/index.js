@@ -30,7 +30,7 @@ export const Folder = ({data, name}) => {
     <StyledFolder>
       <TouchableWithoutFeedback onPress={handleToggle}>
         <FolderLabel>
-          <SvgUri width={16} height={16} source={folderIcon} />
+          <SvgUri width={16} height={16} fill="#000" source={folderIcon} />
           <FolderText>{name}</FolderText>
         </FolderLabel>
       </TouchableWithoutFeedback>
