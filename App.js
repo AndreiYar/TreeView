@@ -14,13 +14,12 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-          horizontal>
-          <View style={styles.container}>
-            <FileTree data={data} />
-          </View>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <ScrollView contentInsetAdjustmentBehavior="automatic" horizontal>
+            <View style={styles.container}>
+              <FileTree data={data} />
+            </View>
+          </ScrollView>
         </ScrollView>
       </SafeAreaView>
     </>
